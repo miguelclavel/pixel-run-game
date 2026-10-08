@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel Run · a footer game by Miguel Clavel</title>
+<meta name="description" content="The little endless runner from the footer of miguelclavel.com. Drop it into your own site, with your own face. By Miguel Clavel.">
+<meta property="og:title" content="Pixel Run · a footer game">
+<meta property="og:description" content="The little endless runner from the footer of miguelclavel.com, ready to drop into your own site.">
+<meta property="og:image" content="https://miguelclavel.github.io/pixel-run-game/assets/pixel-run-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --page: #F9F9FB; --ink: #1D1D21; --muted: #67676C; --rule: #DADADD; --code: #F1F1F4; --link: #1F5FD1; --game: #33333A; }
+  @media (prefers-color-scheme: dark) { :root { --page: #0F0F11; --ink: #F5F5F7; --muted: #A3A3A8; --rule: #2E2E33; --code: #1C1C1F; --link: #7AAEFF; --game: #04040A; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: var(--link); }
+  .wrap { width: min(920px, 100% - 32px); margin: 0 auto; }
+  header { padding: 64px 0 28px; }
+  .by { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
+  .by a { color: inherit; }
+  h1 { margin: 0; font-size: clamp(36px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.035em; font-weight: 750; }
+  .lede { margin: 14px 0 0; font-size: 18px; color: var(--muted); max-width: 640px; }
+  .stage { position: relative; width: 100%; aspect-ratio: 1440 / 380; min-height: 200px; max-height: 460px; background: var(--game); overflow: hidden; }
+  .stage .hint { position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; pointer-events: none; font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+  h2 { margin: 48px 0 10px; font-size: 22px; letter-spacing: -0.02em; }
+  pre { margin: 0; padding: 16px 18px; background: var(--code); border: 1px solid var(--rule); border-radius: 12px; overflow-x: auto; font: 13.5px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  footer { margin: 64px 0 0; padding: 24px 0 48px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+  footer a { color: inherit; }
+  body.embed header, body.embed main, body.embed footer { display: none; }
+  body.embed .stage { max-height: none; height: 100vh; aspect-ratio: auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="by">By <a href="https://miguelclavel.com/?utm_source=github&amp;utm_medium=pixel-run">Miguel Clavel</a>, Senior Product Designer</p>
+    <h1>Pixel Run</h1>
+    <p class="lede">The small game at the bottom of my site, for anyone who gets that far. It plays itself until you jump in. Press space, click, or tap.</p>
+  </header>
+</div>
+<div class="stage" id="game" aria-label="Pixel Run game. Press space, click or tap to jump."><p class="hint">Space / click to jump</p></div>
+<div class="wrap">
+  <main>
+    <h2>Put it on your site</h2>
+    <pre>&lt;div id="game" style="aspect-ratio:1440/380"&gt;&lt;/div&gt;
+
+&lt;script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"&gt;&lt;/script&gt;
+&lt;script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;window.PIXEL_RUN_FACE = "my-face.gif";&lt;/script&gt;  &lt;!-- optional --&gt;
+&lt;script src="pixel-run-game.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  ReactDOM.createRoot(document.getElementById("game"))
+    .render(React.createElement(PixelRunGame, { background: "#33333A" }));
+&lt;/script&gt;</pre>
+    <p>Everything else, every option, and how to use your own face: <a href="https://github.com/miguelclavel/pixel-run-game">the repository</a>.</p>
+  </main>
+  <footer><a href="https://miguelclavel.com/?utm_source=github&amp;utm_medium=pixel-run">miguelclavel.com</a> · <a href="https://github.com/miguelclavel">GitHub</a> · <a href="https://www.linkedin.com/in/miguelclavel/">LinkedIn</a> · MIT licensed</footer>
+</div>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="pixel-run-game.js"></script>
+<script>
+  if (new URLSearchParams(location.search).has('embed')) document.body.classList.add('embed');
+  const bg = getComputedStyle(document.documentElement).getPropertyValue('--game').trim();
+  ReactDOM.createRoot(document.getElementById('game')).render(
+    React.createElement(PixelRunGame, { background: bg, ink: '#FFFFFF', startSpeed: 420, maxSpeed: 980, gravity: 4780, jump: 1480, showHud: true, attract: true, farDashSpeed: 100 })
+  );
+</script>
+</body>
+</html>
