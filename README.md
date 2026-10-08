@@ -2,10 +2,7 @@
 
 The small game at the bottom of [miguelclavel.com](https://miguelclavel.com/?utm_source=github&utm_medium=pixel-run), for anyone who gets that far. My face runs, blocks come at you from the right, and you jump them. Look closely: each block is a letter, and together they spell my name.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/pixel-run-dark.png">
-  <img src="assets/pixel-run-light.png" width="720" alt="Pixel Run: a small runner game where the blocks spell a name">
-</picture>
+<img src="assets/pixel-run.gif" width="720" alt="Pixel Run: a small runner game playing in a website footer, where the blocks spell a name">
 
 **[Play it](https://miguelclavel.github.io/pixel-run-game/)** · Space, a click, or a tap jumps. When nobody's playing, it plays itself.
 
