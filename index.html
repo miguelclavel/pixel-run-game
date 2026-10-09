@@ -39,11 +39,11 @@
     <p class="lede">The small game at the bottom of my site, for anyone who gets that far. It plays itself until you jump in. Press space, click, or tap.</p>
   </header>
 </div>
-<div class="stage" id="game" aria-label="Pixel Run game. Press space, click or tap to jump."><p class="hint">Space / click to jump</p></div>
+<div class="stage" id="game" role="region" aria-label="Pixel Run game. Press space, click or tap to jump."><p class="hint">Space / click to jump</p></div>
 <div class="wrap">
   <main>
     <h2>Put it on your site</h2>
-    <pre>&lt;div id="game" style="aspect-ratio:1440/380"&gt;&lt;/div&gt;
+    <pre tabindex="0" aria-label="Code to put the game on your site">&lt;div id="game" style="aspect-ratio:1440/380"&gt;&lt;/div&gt;
 
 &lt;script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"&gt;&lt;/script&gt;
 &lt;script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
